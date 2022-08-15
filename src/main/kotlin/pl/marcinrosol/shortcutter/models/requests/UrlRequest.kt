@@ -1,8 +1,8 @@
 package pl.marcinrosol.shortcutter.models.requests
 
-class UrlRequest(
-        url: String,
-        customShortcut : String,
-        strategy: UrlStrategy
+data class UrlRequest(
+        var url: String,
+        var customShortcut : String,
+        var strategy: UrlStrategy
     ) {
 }
