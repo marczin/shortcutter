@@ -1,11 +1,10 @@
 package pl.marcinrosol.shortcutter.services
 
-import org.apache.commons.codec.binary.Base32
 import org.springframework.stereotype.Service
 import pl.marcinrosol.shortcutter.error.ExistingUrlException
 import pl.marcinrosol.shortcutter.models.dtos.UrlDto
 import pl.marcinrosol.shortcutter.models.requests.UrlRequest
-import java.security.SecureRandom
+import pl.marcinrosol.shortcutter.utils.UuidUtils.Companion.prepareUserFriendlyUuid
 
 @Service
 class UrlServiceImpl : UrlService {
@@ -15,13 +14,6 @@ class UrlServiceImpl : UrlService {
         var model = prepareModel(uuid, request)
         //todo save model in database
         return model
-    }
-
-    private fun prepareUserFriendlyUuid(size: Int): String {
-        val secureRandom = SecureRandom()
-        val random = ByteArray(size)
-        secureRandom.nextBytes(random)
-        return Base32().encodeAsString(random).replace("=", "")
     }
 
     private fun prepareModel(uuid: String, request: UrlRequest): UrlDto {

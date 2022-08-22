@@ -4,5 +4,4 @@ data class UrlRequest(
     var url: String,
     var customUrl: String,
     var strategy: UrlStrategy
-) {
-}
+)
