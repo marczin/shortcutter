@@ -1,9 +1,12 @@
 package pl.marcinrosol.shortcutter.models.dtos
 
+import java.util.Date
+
 data class UrlDto(
     var uuid: String?,
-    var customUrl: String?,
-    var redirectUrl: String?
+    var alias: String?,
+    var redirectUrl: String?,
+    var createDate: Date?
 ) {
-    constructor() : this(null, null, null)
+    constructor() : this(null, null, null, null)
 }
